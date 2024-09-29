@@ -1,0 +1,168 @@
+
+
+
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+   body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: #6563ff;
+   }
+   
+   .wrapper {
+      height: 500px;
+      width: 500px;
+      background: #f8f8f8;
+      border-radius: 20px;
+      padding-right: 80px;
+      padding-bottom: 30px;
+   }
+   
+   .cards, .card, .view {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+   }
+   
+   .cards {
+      height: 100%;
+      width: 100%;
+      flex-wrap: wrap;
+      justify-content: space-between;
+   }
+   
+   .cards .card {
+      cursor: pointer;
+      position: relative;
+      perspective: 800px;
+      height: calc(100% / 4 - 10px);
+      width: calc(100% / 4 - 10px);
+   }
+   .card.shake{
+      animation: shake 0.35s ease-in-out;
+   }
+   @keyframes shake {
+      0%, 100%{
+         transform: translateX(0);
+      }
+      20%{
+         transform: translateX(-13px);
+   } 
+      40%{
+         transform: translateX(13px);
+   } 60%{
+         transform: translateX(-8px);
+      }
+      80%{
+         transform: translateX(8px);
+      } 
+   }
+   .cards .card .view {
+      width: 100%;
+      height: 100%;
+      background: rgb(255, 255, 255);
+      border-radius: 10px;
+      position: absolute;
+      pointer-events: none;
+      user-select: none;
+      transition: transform 0.25s linear;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+   }
+   
+   .card .front-view {
+      transform: rotateY(0deg);
+   }
+   
+   .card .back-view {
+      transform: rotateY(180deg);
+   }
+   
+   .card .back-view img {
+      width: 100%;    
+      height: auto;   
+      object-fit: contain; 
+      max-width: 80%; 
+      max-height: 80%; 
+   }
+   
+   .card.flip .front-view {
+      transform: rotateY(180deg);
+   }
+   
+   .card.flip .back-view {
+      transform: rotateY(0deg);
+   }
+   
+   .card .front-view span {
+      font-size: 30px;
+      color: #6563ff;
+   }body {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column; 
+      min-height: 100vh;
+      background: #6563ff;
+   }
+   
+   .timer {
+      font-size: 16px;
+      font-weight: bold;
+      color: #ff5e57;
+      background-color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      border: 1px solid #ff5e57;
+      display: inline-block;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      text-align: center;
+      transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+   }
+   
+   .timer span {
+      color: #6563ff;
+      font-size: 18px;
+   }
+   
+   .wrapper {
+      height: 500px;
+      width: 500px;
+      background: #f8f8f8;
+      border-radius: 20px;
+      padding-right: 80px;
+      padding-bottom: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+   }
+   
+   .timer.alert {
+      color: #fff;
+      background-color: #ff3b3b;
+      animation: alert 1s infinite;
+   }
+   
+   @keyframes alert {
+      0% { background-color: #ff3b3b; }
+      50% { background-color: #ff6f6f; }
+      100% { background-color: #ff3b3b; }
+   }
+   .timer {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000; 
+   }
+   
